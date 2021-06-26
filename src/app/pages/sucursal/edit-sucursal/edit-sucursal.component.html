@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Crear Sucursal</h1>
+<div mat-dialog-content>
+  <form fxLayout="column" [formGroup]="fg">
+    <mat-form-field appearance="outline" fxFlex>
+      <mat-label>Codigo:</mat-label>
+      <input matInput formControlName="codigoSucursal">
+      <mat-error *ngIf="controls.codigoSucursal.errors">
+        Ingrese el código
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" fxFlex>
+      <mat-label>Nombre:</mat-label>
+      <input matInput formControlName="nombre">
+      <mat-error *ngIf="controls.nombre.errors">
+        Ingrese el nombre
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions dir="rtl">
+  <button color="primary" [disabled]="fg.invalid" mat-raised-button type="submit" (click)="edit()">Actualizar</button>
+  <button mat-button mat-dialog-close>Cerrar</button>
+</div>

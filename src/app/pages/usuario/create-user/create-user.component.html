@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Crear Usuario</h1>
+<div mat-dialog-content>
+  <form fxLayout="column" [formGroup]="fg">
+    <mat-form-field appearance="outline" fxFlex>
+      <mat-label>Codigo:</mat-label>
+      <input matInput formControlName="codigoUsuario">
+      <mat-error *ngIf="controls.codigoUsuario.errors">
+        Ingrese el código
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" fxFlex>
+      <mat-label>Nombre:</mat-label>
+      <input matInput formControlName="nombre">
+      <mat-error *ngIf="controls.nombre.errors">
+        Ingrese el nombre
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" fxFlex>
+      <mat-label>Usuario:</mat-label>
+      <input matInput formControlName="usuario">
+      <mat-error *ngIf="controls.usuario.errors">
+        Ingrese el usuario
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" fxFlex>
+      <mat-label>Contraseña:</mat-label>
+      <input type="password" matInput formControlName="password">
+      <mat-error *ngIf="controls.password.errors">
+        Ingrese la contraseña
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Sucursal</mat-label>
+      <mat-select formControlName="sucursal">
+        <mat-option></mat-option>
+        <mat-option [value]="sucursal" *ngFor="let sucursal of sucursales">{{ sucursal.nombre }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions dir="rtl">
+  <button color="primary" [disabled]="fg.invalid" mat-raised-button type="submit" (click)="create()">Crear</button>
+  <button mat-button mat-dialog-close>Cerrar</button>
+</div>

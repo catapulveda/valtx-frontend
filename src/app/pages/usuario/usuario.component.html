@@ -1,0 +1,14 @@
+<button mat-raised-button (click)="create()">NUEVO</button>
+
+<app-table [data]="usuarios" [columns]="columnas" [columnActions]="columnActions"></app-table>
+
+<ng-template #columnActions let-rowValue="rowValue" class="text-center">
+  <div fxLayoutGap="8px" fxLayout="row">
+    <button mat-mini-fab color="primary" (click)="edit(rowValue)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn" (click)="delete(rowValue)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</ng-template>
